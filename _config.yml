@@ -1,0 +1,22 @@
+# Site settings
+title: 斯屹 - 王小鸟的秀场
+email: father@wangsiyi.net
+description: # this means to ignore newlines until "baseurl:"
+  ——你是乖宝宝么？（妈妈）
+
+  ——我是王小鸟。
+
+  ——你是小坏包么？（爸爸）
+
+  ——我是王小鸟。
+
+  ——你叫什么名字啊？（王老师）
+
+  ——我叫……王斯屹~~~
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://wangsiyi.net" # the base hostname & protocol for your site
+twitter_username: gnawux
+github_username:  gnawux
+
+# Build settings
+markdown: kramdown
