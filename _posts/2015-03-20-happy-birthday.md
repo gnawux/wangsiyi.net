@@ -29,9 +29,7 @@ published: true
 
 ### 确定液晶屏地址
 
-软件上的准备，首先需要确定液晶显示器的 I2C 总线地址，实际上，从接口板的接线是可以看出来的，不过，这里我们用一个简单的方法，打开 Arduino 开发环境，新建一个 sketch，在里面贴上如下的程序：
-
-<script src="https://gist.github.com/gnawux/10bbcc8bee2abf0bf310.js"></script>
+软件上的准备，首先需要确定液晶显示器的 I2C 总线地址，实际上，从接口板的接线是可以看出来的，不过，这里我们用一个简单的方法，打开 Arduino 开发环境，新建一个 sketch，在里面贴上[这个程序](https://gist.github.com/gnawux/10bbcc8bee2abf0bf310)。
 
 确保 Arduino 连接好电脑后，点击向右侧的箭头（upload），将这个程序烧入 arduino，然后打开工具菜单的串口监视器（`Tools` -> `Serial Monitor`），就可以看到 Arduino 告诉我们，液晶的地址是多少了，我手头这个，地址是 `0x27`
 
@@ -46,7 +44,7 @@ published: true
 
 ## 软件程序
 
-最终的软件很简单，程序非常短，如果不想看逐步介绍，直接看后面的程序就可以了
+最终的软件很简单，程序非常短，如果不想看逐步介绍，直接[点开这里看程序](https://gist.github.com/gnawux/b3f6bb020a6f3a3e1c63)就可以了
 
 ### 引用库
 
@@ -119,13 +117,73 @@ published: true
 
 ### 定义主要流程
 
+所有 Arduino 程序的主要流程都分成两部分——初始化和主循环。初始化在开始的时候执行一次，主循环不断地重复执行。
+
+这里，我们的初始化会设置液晶的状态，准备好用于写液晶的内存，设定开始显示的行号
+
+	void setup() 
+	{
+	  banner_init();
+	  line = 0;
+	 
+	  lcd.begin (16,2);  // initialize the lcd
+	  lcd.backlight();  
+	  lcd.clear();
+	  lcd.home();
+	}
+
+现在开始主循环
+
+	void loop()  
+	{
+	  banner_transit(30);
+	  delay(2000);
+	  line = (line+2) % 6;
+	}
+
+主循环很简单：让新内容从右侧进入，替换掉原有内容，`30` 是左移的速度，越小越快，具体移法后面再说。内容进来之后，休息2秒时间，并把行号指向两行之后的内容，超出第六行之后回到开头。然后进入下一次循环。
+
+主要流程很简单，下面把几个细节也贴出来
+
 ### 细节1: 初始化
+
+初始化的思路就是准备好两行16个字符的空格，等着把字从右面串进来
+
+	void banner_init() {
+	  for(int i = 0; i<16;i++) {
+		banner1[i] = ' ';
+		banner2[i] = ' ';
+	  }
+	  banner1[16] = '\0';
+	  banner2[16] = '\0';
+	}
 
 ### 细节2: 走马灯效果
 
+走马灯效果就是要让字看起来是从右侧飞进来的，实际上就是把已经有的内容左移一格，然后再把要进来的内容放在最右面一列
+
+	void banner_transit(int step){
+	  for(int i=0; i<16; i++) {
+		strncpy(banner1, banner1 + 1, 15);
+		strncpy(banner2, banner2 + 1, 15);
+		banner1[15] = banners[line][i];
+		banner2[15] = banners[line + 1][i];
+		banner_display();
+		delay(step);
+	  }
+	}
+
+每移动一次，加入设置的毫秒值的延时，这样飞进来总共需要的时间就是 `16 * step` 长。
+
 ### 细节3: 具体字符显示
 
-### 附，完整程序
+具体字符显示是标准例程，毫无原创性：
 
-<script src="https://gist.github.com/gnawux/b3f6bb020a6f3a3e1c63.js"></script>
+	void banner_display() {
+	  lcd.setCursor(0,0); 
+	  lcd.print(banner1);
+	  lcd.setCursor(0,1); 
+	  lcd.print(banner2);
+	}
+
 
