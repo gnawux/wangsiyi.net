@@ -17,21 +17,60 @@ published: true
 
 今年过生日，爸爸耍了个小把戏——设计了一个个滚动液晶屏来娱乐小朋友，价格便宜新意足，特此记录
 
-*编辑中，未完成*
-
 ## 效果展示放在开头
 
-## 材料
+<embed src="http://player.youku.com/player.php/sid/XOTE2MzE2NDE2/v.swf" allowFullScreen="true" quality="high" width="480" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" />
 
-## 硬件连接
+## 材料 & 硬件连接
+
+这个设计使用的材料非常少，包含：
+
+- Arduino Uno R3 (以及为了美观方便加的亚克力的盒子）
+- LCD 1602 + I2C 模块，分开买就要自己焊在一起，也可以买焊好的，焊在一起的效果是[这样的(图片)](http://7xi6s0.com1.z0.glb.clouddn.com/20150320/IMG_0806.JPG)
+- 4 根一公一母的杜邦线，因为 arduino 这边是插孔，模块这边是排针，所以要用[这种一公一母的(图片)](http://7xi6s0.com1.z0.glb.clouddn.com/20150320/IMG_0809.JPG)
+
+把这些东西连在一起就可以了
+
+<img src="http://7xi6s0.com1.z0.glb.clouddn.com/20150320/IMG_0808.JPG" width="60%">
+
+连线方法是：
+
+- 接口板上的 `VCC` 连接 Arduino Uno `Power` 区域的 `5V`
+- 接口板上的 `GND` 链接 Arduino Uno `Power` 区域的 `GND`
+- 接口板上的 `SDA` 链接 Arduino Uno `Analog In`区域的 `A4`
+- 接口板上的 `SCL` 链接 Arduino Uno `Analog In`区域的 `A5`
+
+### I2C
+
+简单介绍一下这种接线法，不看也不影响全文效果——这种读作 "I方C" 的总线是飞利浦半导体（现在的NXP）发明的，用于电路板上不同集成电路之间通信的机制，除去电源和地之外，只用一根时钟线（SCL）和一根数据线（SDA），就可以串联起很多个设备，因为只有一根线是用来传输数据的，也被称做是一种单线总线。因为I2C布线非常方便，所以，在各种智能应用的电路板上和电脑的主机板上都经常见到这种总线，计算机的主板上，常常使用它来收集各个芯片的温度、风扇转速等健康信息。
 
 ## 软件预备
 
+### Arduino 软件
+
+可以直接从官方网站下载：[http://arduino.cc/en/Main/Software](http://arduino.cc/en/Main/Software)
+
+设置可以参考官方的新手指导: [http://arduino.cc/en/Guide/HomePage](http://arduino.cc/en/Guide/HomePage)
+
+对于 Mac 用户来说，下载安装后，将 Arduino 用 USB 线连接到计算机上，在串口设置： `Tools` -> `Serial Port` 里，选择 `/dev/tty.usbmodemXXXX` 那个，此外需要修改一个权限才能正常烧录程序
+
+    sudo chmod a+w /var/lock
+
+对于其他系统，看各自的指导，安装驱动啥的就可以了。
+
 ### 确定液晶屏地址
 
-软件上的准备，首先需要确定液晶显示器的 I2C 总线地址，实际上，从接口板的接线是可以看出来的，不过，这里我们用一个简单的方法，打开 Arduino 开发环境，新建一个 sketch，在里面贴上[这个程序](https://gist.github.com/gnawux/10bbcc8bee2abf0bf310)。
+软件上的准备，首先需要确定液晶显示器的 I2C 总线地址，实际上，从接口板的接线是可以看出来的，不过，这里我们用一个简单的方法，打开 Arduino 开发环境，新建一个 sketch，在里面贴上[这个程序](https://gist.github.com/gnawux/10bbcc8bee2abf0bf310):
 
-确保 Arduino 连接好电脑后，点击向右侧的箭头（upload），将这个程序烧入 arduino，然后打开工具菜单的串口监视器（`Tools` -> `Serial Monitor`），就可以看到 Arduino 告诉我们，液晶的地址是多少了，我手头这个，地址是 `0x27`
+<script src="https://gist.github.com/gnawux/10bbcc8bee2abf0bf310.js"></script>
+
+确保 Arduino 连接好电脑后，点击向右侧的箭头（upload），将这个程序烧入 arduino
+
+![烧录程序](https://monosnap.com/file/wZnHfjv7MTOBPSKHB6ByCXvGZP8zpC.png)
+
+然后打开工具菜单的串口监视器（`Tools` -> `Serial Monitor`），就可以看到 Arduino 告诉我们，液晶的地址是多少了，我手头这个，地址是 `0x27`
+
+![查看总线地址](https://monosnap.com/file/GOAYWmtc1fssUMt7tO4IWZPZKBRzRb.png)
 
 ### 液晶程序库
 
@@ -186,4 +225,7 @@ published: true
 	  lcd.print(banner2);
 	}
 
+### 附：完整程序
+
+<script src="https://gist.github.com/gnawux/b3f6bb020a6f3a3e1c63.js"></script>
 
