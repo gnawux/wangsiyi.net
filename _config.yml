@@ -1,13 +1,10 @@
 # Site settings
-title: 斯屹 - 王小鸟的秀场
+title: 斯屹 - 骑红色自行车的少年
 email: father!#$!@#$@#$wangsiyi!@#$%^&*()_net
 description: # this means to ignore newlines until "baseurl:"
-  ——你是乖宝宝么？（妈妈）<br/>
-  ——我是王小鸟。<br/>
-  ——你是小坏包么？（爸爸）<br/>
-  ——我是王小鸟。<br/>
-  ——你叫什么名字啊？（王老师）<br/>
-  ——我叫……王斯屹~~~<br/>
+  骑红色自行车的男孩<br/>
+  到处照照片的顽皮小伙伴<br/>
+  骄傲的英语小广播员
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://wangsiyi.net" # the base hostname & protocol for your site
 twitter_username: gnawux
