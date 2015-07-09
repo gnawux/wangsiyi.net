@@ -1,0 +1,22 @@
+title: 目标：超市
+date: 2010-12-27 09:22:34
+update: ""
+author: gnawux
+tags:
+- 自行车
+- 视频
+- 运动
+- 时间机器
+categories:
+- 时间机器
+topic: ""
+draft: false
+preview: ""
+top: false
+
+
+---
+
+
+<p>斯屹可以骑车打酱油了，嘿嘿</p>
+<p><embed src="http://player.youku.com/player.php/sid/XMjMyNjA1MTMy/v.swf" quality="high" width="480" height="400" align="middle" allowscriptaccess="sameDomain" type="application/x-shockwave-flash"></embed></p>

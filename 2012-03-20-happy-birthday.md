@@ -1,0 +1,26 @@
+title: 斯屹生日快乐
+date: 2012-03-20 15:07:13
+update: ""
+author: gnawux
+tags:
+- photo
+- 照片
+- 生日
+- 经典一刻
+categories:
+- 经典一刻
+topic: ""
+draft: false
+preview: "今天是斯屹的四岁生日，祝你生日快乐，也祝你妈妈青春永驻"
+top: false
+
+
+---
+
+
+<p>同时发在：http://wangxu.me/blog/p/641</p>
+<p>今天是斯屹的四岁生日，祝你生日快乐，也祝你妈妈青春永驻</p>
+<div> <a href="http://wangsiyi.net/siyi/wp-content/uploads/2012/03/siyi-4years-1.jpg"><img class="aligncenter size-medium wp-image-82" title="siyi-4years-1" src="/images/siyi-4years-1-300x225.jpg" alt="" width="300" height="225" /></a></div>
+<p><a href="http://wangsiyi.net/siyi/wp-content/uploads/2012/03/siyi-4years-2.jpg"><img class="aligncenter size-medium wp-image-83" title="siyi-4years-2" src="/images/siyi-4years-2-300x225.jpg" alt="" width="300" height="225" /></a></p>
+<p><a href="http://wangsiyi.net/siyi/wp-content/uploads/2012/03/siyi-4years-3.jpg"><img class="aligncenter size-medium wp-image-84" title="siyi-4years-3" src="/images/siyi-4years-3-300x225.jpg" alt="" width="300" height="225" /></a></p>
+<p>&nbsp;</p>

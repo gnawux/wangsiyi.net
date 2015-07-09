@@ -1,0 +1,20 @@
+title: 建站宣言
+date: 2011-03-29 22:22:15
+update: ""
+author: gnawux
+tags:
+- 本站
+- 通告
+- 收容区
+categories:
+- 收容区
+topic: ""
+draft: false
+preview: ""
+top: false
+
+
+---
+
+
+<p>本站在此时此刻起正式运行，注意，此前的日志是本站的临时维护人员（father at wangsiyi.net）擅自从其他地方转移过来占位置的，属于事后追加记录。</p>

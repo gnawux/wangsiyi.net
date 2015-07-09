@@ -1,0 +1,25 @@
+title: 补视频中……
+date: 2011-05-07 11:43:26
+update: ""
+author: gnawux
+tags:
+- video
+- 本站
+- 收容区
+categories:
+- 收容区
+topic: ""
+draft: false
+preview: ""
+top: false
+
+
+---
+
+
+<p>正在补充上传两个整理出来的过年时候的手机视频：</p>
+<ul>
+<li>过年什刹海滑冰车：<a href="http://wangsiyi.net/siyi/p/54">http://wangsiyi.net/siyi/p/54</a></li>
+<li>过年逛华润万家：<a href="http://wangsiyi.net/siyi/p/34">http://wangsiyi.net/siyi/p/34</a></li>
+</ul>
+<p>呵呵，新补的日志的发布日期都放在视频拍摄的时间了，嗯，所以有旧日志加新内容的感觉，呵呵</p>
