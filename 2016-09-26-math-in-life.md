@@ -9,6 +9,8 @@ tags:
 - siyi
 - 生活
 - 数学
+categories:
+- study
 topic:
 draft: false
 preview: "十分惭愧，作为爸爸，这一段时间，花在孩子身上的时间真的太有限了，昨天到今早，带了一会儿屹的学习，有点感受，不吐不快。"
