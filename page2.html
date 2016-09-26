@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
         <meta name="keywords" content="斯屹, 骑红色自行车的少年">
         <meta name="description" content="骑红色自行车的少年">
-        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/bundle/index.css">
         <title>斯屹</title>
     </head>
     <body>
@@ -15,7 +15,41 @@
 <ul class="menu">
     <li class="menu-item"><a href="/archive.html">归档</a></li>
     <li class="menu-item"><a href="/tag.html">标签</a></li>
+    
 </ul>
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+</script>
+
+<script type="text/javascript">
+    var conn, reloadTimer, connectTimer;
+    var connect = function() {
+        conn = new WebSocket('ws://' + location.host + '/live');
+        conn.onmessage = function(event) {
+            if (event.data === 'change') {
+                if (reloadTimer) clearTimeout(reloadTimer);
+                reloadTimer = setTimeout(function() {
+                    window.location.reload();
+                }, 200);
+            }
+        };
+        conn.onclose = function() {
+            if (connectTimer) clearTimeout(connectTimer);
+            connectTimer = setTimeout(function() {
+                connect();
+            }, 1000);
+        };
+    };
+    connect();
+</script>
+
 
             <article class="main page">
                 <header class="header site">
@@ -28,9 +62,26 @@
                 <ul class="article-list">
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/03/20/2015-03-20-happy-birthday.html">生日快乐，斯屹</a>
+                        <a class="title" href="/%e6%97%b6%e9%97%b4%e6%9c%ba%e5%99%a8/2015/03/22/rpi/index.html">换用 Raspberry Pi 实现同样的效果</a>
                         
-                        <section class="preview">今年过生日，爸爸耍了个小把戏——设计了一个个滚动液晶屏来娱乐小朋友，价格便宜新意足，特此记录...</section>
+                        <section class="preview content">Arduino 开发用的是 C++，略显生涩，教小朋友，还是来 Python 吧，Pi 也能做这个事呢。...</section>
+                        <section class="info">
+                            <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
+                            <a class="name" href="/about.me.html">gnawux</a>
+                            <span class="date" data-time="1426954699">
+                                <span class="from"></span>
+                                
+                            </span>
+                            <span class="tags">
+                            <a class="tag" href="/tag/Raspberry%20Pi/index.html">Raspberry Pi</a><a class="tag" href="/tag/EE/index.html">EE</a><a class="tag" href="/tag/birthday/index.html">birthday</a><a class="tag" href="/tag/siyi/index.html">siyi</a><a class="tag" href="/tag/tutorial/index.html">tutorial</a><a class="tag" href="/tag/%e6%97%b6%e9%97%b4%e6%9c%ba%e5%99%a8/index.html">时间机器</a>
+                            </span>
+                        </section>
+                    </li>
+                    
+                    <li class="article">
+                        <a class="title" href="/%e6%97%b6%e9%97%b4%e6%9c%ba%e5%99%a8/2015/03/20/happy-birthday/index.html">生日快乐，斯屹</a>
+                        
+                        <section class="preview content">今年过生日，爸爸耍了个小把戏——设计了一个个滚动液晶屏来娱乐小朋友，价格便宜新意足，特此记录...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -45,9 +96,9 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2014/01/07/2014-01-07-happy-new-year.html">A Better Year</a>
+                        <a class="title" href="/%e6%97%b6%e9%97%b4%e6%9c%ba%e5%99%a8/2014/01/07/happy-new-year/index.html">A Better Year</a>
                         
-                        <section class="preview">2013年年度总结，充实的一年，成长的一年，更好的一年...</section>
+                        <section class="preview content">2013年年度总结，充实的一年，成长的一年，更好的一年...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -62,7 +113,7 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2012/12/26/2012-12-26-merry-christmas-2.html">Merry Christmas</a>
+                        <a class="title" href="/%e6%97%b6%e9%97%b4%e6%9c%ba%e5%99%a8/2012/12/26/merry-christmas-2/index.html">Merry Christmas</a>
                         
                         
                         <section class="info">
@@ -79,12 +130,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2012/12/16/2012-12-16-merry-christmas-1.html">圣诞快乐</a>
+                        <a class="title" href="/%e7%bb%8f%e5%85%b8%e4%b8%80%e5%88%bb/2012/12/16/merry-christmas-1/index.html">圣诞快乐</a>
                         
-                        <section class="preview">一家人一起走过这么多年了，感慨良多啊...</section>
+                        <section class="preview content">一家人一起走过这么多年了，感慨良多啊...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1355639059">
                                 <span class="from"></span>
                                 
@@ -96,12 +147,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2012/12/15/2012-12-15-genuine-daddy.html">亲爹</a>
+                        <a class="title" href="/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/2012/12/15/genuine-daddy/index.html">亲爹</a>
                         
-                        <section class="preview">爸爸问，“你为什么对我这么好啊”，斯屹说：“因为你是我亲爹啊！”...</section>
+                        <section class="preview content">爸爸问，“你为什么对我这么好啊”，斯屹说：“因为你是我亲爹啊！”...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1355570715">
                                 <span class="from"></span>
                                 
@@ -113,12 +164,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2012/04/26/2012-04-26-a-second-child.html">两个孩子</a>
+                        <a class="title" href="/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/2012/04/26/a-second-child/index.html">两个孩子</a>
                         
-                        <section class="preview">斯屹：妈妈，你想让咱们家有两个孩子么？...</section>
+                        <section class="preview content">斯屹：妈妈，你想让咱们家有两个孩子么？...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1335401478">
                                 <span class="from"></span>
                                 
@@ -130,12 +181,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2012/03/20/2012-03-20-happy-birthday.html">斯屹生日快乐</a>
+                        <a class="title" href="/%e7%bb%8f%e5%85%b8%e4%b8%80%e5%88%bb/2012/03/20/happy-birthday/index.html">斯屹生日快乐</a>
                         
-                        <section class="preview">今天是斯屹的四岁生日，祝你生日快乐，也祝你妈妈青春永驻...</section>
+                        <section class="preview content">今天是斯屹的四岁生日，祝你生日快乐，也祝你妈妈青春永驻...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1332227233">
                                 <span class="from"></span>
                                 
@@ -147,12 +198,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2012/01/31/2012-01-31-i-dare-not.html">我不敢⋯⋯</a>
+                        <a class="title" href="/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/2012/01/31/i-dare-not/index.html">我不敢⋯⋯</a>
                         
                         
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1328025009">
                                 <span class="from"></span>
                                 
@@ -164,35 +215,18 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2012/01/31/2012-01-31-pig.html">猪⋯⋯</a>
+                        <a class="title" href="/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/2012/01/31/pig/index.html">猪⋯⋯</a>
                         
                         
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1328024746">
                                 <span class="from"></span>
                                 
                             </span>
                             <span class="tags">
                             <a class="tag" href="/tag/%e5%a5%b3%e8%8b%b1%e9%9b%84/index.html">女英雄</a><a class="tag" href="/tag/%e5%b0%8f%e7%8b%97%e7%86%8a/index.html">小狗熊</a><a class="tag" href="/tag/%e5%b0%8f%e8%8b%b1%e9%9b%84/index.html">小英雄</a><a class="tag" href="/tag/%e6%88%91%e6%98%af%e7%8c%aa/index.html">我是猪</a><a class="tag" href="/tag/%e8%af%ad%e5%bd%95/index.html">语录</a><a class="tag" href="/tag/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/index.html">童言无忌</a>
-                            </span>
-                        </section>
-                    </li>
-                    
-                    <li class="article">
-                        <a class="title" href="/post/2011/09/13/2011-09-13-oracle.html">咒语（外一句）</a>
-                        
-                        
-                        <section class="info">
-                            <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
-                            <span class="date" data-time="1315895165">
-                                <span class="from"></span>
-                                
-                            </span>
-                            <span class="tags">
-                            <a class="tag" href="/tag/%e8%af%ad%e5%bd%95/index.html">语录</a><a class="tag" href="/tag/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/index.html">童言无忌</a>
                             </span>
                         </section>
                     </li>
@@ -216,6 +250,5 @@
 </footer>
 
     </body>
-    <script src="/js/jquery-1.11.2.min.js"></script>
-    <script src="/js/index.js"></script>
+    <script src="/bundle/index.js"></script>
 </html>

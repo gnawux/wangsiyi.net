@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
         <meta name="keywords" content="斯屹, 骑红色自行车的少年">
         <meta name="description" content="骑红色自行车的少年">
-        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/bundle/index.css">
         <title>斯屹</title>
     </head>
     <body>
@@ -15,7 +15,41 @@
 <ul class="menu">
     <li class="menu-item"><a href="/archive.html">归档</a></li>
     <li class="menu-item"><a href="/tag.html">标签</a></li>
+    
 </ul>
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+</script>
+
+<script type="text/javascript">
+    var conn, reloadTimer, connectTimer;
+    var connect = function() {
+        conn = new WebSocket('ws://' + location.host + '/live');
+        conn.onmessage = function(event) {
+            if (event.data === 'change') {
+                if (reloadTimer) clearTimeout(reloadTimer);
+                reloadTimer = setTimeout(function() {
+                    window.location.reload();
+                }, 200);
+            }
+        };
+        conn.onclose = function() {
+            if (connectTimer) clearTimeout(connectTimer);
+            connectTimer = setTimeout(function() {
+                connect();
+            }, 1000);
+        };
+    };
+    connect();
+</script>
+
 
             <article class="main page">
                 <header class="header site">
@@ -27,12 +61,12 @@
                 <ul class="article-list">
                     
                     <li class="article">
-                        <a class="title" href="/post/2011/04/05/2011-04-05-mis-talk.html">说漏嘴</a>
+                        <a class="title" href="/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/2011/04/05/mis-talk/index.html">说漏嘴</a>
                         
                         
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1301969056">
                                 <span class="from"></span>
                                 
@@ -44,12 +78,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2011/09/13/2011-09-13-oracle.html">咒语（外一句）</a>
+                        <a class="title" href="/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/2011/09/13/oracle/index.html">咒语（外一句）</a>
                         
                         
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1315895165">
                                 <span class="from"></span>
                                 
@@ -61,12 +95,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2012/01/31/2012-01-31-i-dare-not.html">我不敢⋯⋯</a>
+                        <a class="title" href="/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/2012/01/31/i-dare-not/index.html">我不敢⋯⋯</a>
                         
                         
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1328025009">
                                 <span class="from"></span>
                                 
@@ -78,12 +112,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2012/01/31/2012-01-31-pig.html">猪⋯⋯</a>
+                        <a class="title" href="/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/2012/01/31/pig/index.html">猪⋯⋯</a>
                         
                         
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1328024746">
                                 <span class="from"></span>
                                 
@@ -95,12 +129,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2012/04/26/2012-04-26-a-second-child.html">两个孩子</a>
+                        <a class="title" href="/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/2012/04/26/a-second-child/index.html">两个孩子</a>
                         
-                        <section class="preview">斯屹：妈妈，你想让咱们家有两个孩子么？...</section>
+                        <section class="preview content">斯屹：妈妈，你想让咱们家有两个孩子么？...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1335401478">
                                 <span class="from"></span>
                                 
@@ -112,12 +146,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2012/12/15/2012-12-15-genuine-daddy.html">亲爹</a>
+                        <a class="title" href="/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/2012/12/15/genuine-daddy/index.html">亲爹</a>
                         
-                        <section class="preview">爸爸问，“你为什么对我这么好啊”，斯屹说：“因为你是我亲爹啊！”...</section>
+                        <section class="preview content">爸爸问，“你为什么对我这么好啊”，斯屹说：“因为你是我亲爹啊！”...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1355570715">
                                 <span class="from"></span>
                                 
@@ -129,9 +163,9 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/07/05/2015-07-05-qa-week-0629.html">我爱问老爸：一周问题实录(1)</a>
+                        <a class="title" href="/%e6%88%91%e7%88%b1%e9%97%ae%e8%80%81%e7%88%b8/2015/07/05/qa-week-0629/index.html">我爱问老爸：一周问题实录(1)</a>
                         
-                        <section class="preview">屹问，是不是如果鸡少了，少捡走一些鸡蛋就好了，于是我告诉他，只有受精的鸡蛋才能孵出小鸡。屹表示，姥姥家有公鸡，还是有可能有受精的鸡蛋的。...</section>
+                        <section class="preview content">屹问，是不是如果鸡少了，少捡走一些鸡蛋就好了，于是我告诉他，只有受精的鸡蛋才能孵出小鸡。屹表示，姥姥家有公鸡，还是有可能有受精的鸡蛋的。...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -146,9 +180,9 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/07/11/2015-07-11-qa-week-0706.html">我爱问老爸：一周问题实录(2)</a>
+                        <a class="title" href="/misc/2015/07/11/qa-week-0706/index.html">我爱问老爸：一周问题实录(2)</a>
                         
-                        <section class="preview">后面的问题可难住我了，屹问，为什么我们的汽车烧汽油而不烧柴油，这个，要么是因为两种油的燃料不同，要么因为两种发动机有不同，才有了这个选择，好吧，回头查查。...</section>
+                        <section class="preview content">后面的问题可难住我了，屹问，为什么我们的汽车烧汽油而不烧柴油，这个，要么是因为两种油的燃料不同，要么因为两种发动机有不同，才有了这个选择，好吧，回头查查。...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -163,9 +197,9 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/07/18/2015-07-18-qa-week-07013.html">我爱问老爸：一周问题实录(3)</a>
+                        <a class="title" href="/misc/2015/07/18/qa-week-07013/index.html">我爱问老爸：一周问题实录(3)</a>
                         
-                        <section class="preview">冥王星周，新视野号是真正伟大的星际探险，加油孩子们，更多未知的宇宙等着你们...</section>
+                        <section class="preview content">冥王星周，新视野号是真正伟大的星际探险，加油孩子们，更多未知的宇宙等着你们...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -180,9 +214,9 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/07/25/2015-07-25-qa-week-0720.html">我爱问老爸：一周问题实录(4)</a>
-                        <div class="topic" style="background-image:url(/images/IMG_1668.png);"></div>
-                        <section class="preview">为什么说不同颜色加在一起就是白色，可我自己混合所有颜料却只能得到黑色啊。...</section>
+                        <a class="title" href="/misc/2015/07/25/qa-week-0720/index.html">我爱问老爸：一周问题实录(4)</a>
+                        <div class="cover" style="background-image:url(/images/IMG_1668.png);"></div>
+                        <section class="preview content">为什么说不同颜色加在一起就是白色，可我自己混合所有颜料却只能得到黑色啊。...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -215,6 +249,5 @@
 </footer>
 
     </body>
-    <script src="/js/jquery-1.11.2.min.js"></script>
-    <script src="/js/index.js"></script>
+    <script src="/bundle/index.js"></script>
 </html>

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
         <meta name="keywords" content="斯屹, 骑红色自行车的少年">
         <meta name="description" content="骑红色自行车的少年">
-        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/bundle/index.css">
         <title>斯屹</title>
     </head>
     <body>
@@ -15,7 +15,41 @@
 <ul class="menu">
     <li class="menu-item"><a href="/archive.html">归档</a></li>
     <li class="menu-item"><a href="/tag.html">标签</a></li>
+    
 </ul>
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+</script>
+
+<script type="text/javascript">
+    var conn, reloadTimer, connectTimer;
+    var connect = function() {
+        conn = new WebSocket('ws://' + location.host + '/live');
+        conn.onmessage = function(event) {
+            if (event.data === 'change') {
+                if (reloadTimer) clearTimeout(reloadTimer);
+                reloadTimer = setTimeout(function() {
+                    window.location.reload();
+                }, 200);
+            }
+        };
+        conn.onclose = function() {
+            if (connectTimer) clearTimeout(connectTimer);
+            connectTimer = setTimeout(function() {
+                connect();
+            }, 1000);
+        };
+    };
+    connect();
+</script>
+
 
             <article class="main page">
                 <header class="header site">
@@ -27,12 +61,12 @@
                 <ul class="article-list">
                     
                     <li class="article">
-                        <a class="title" href="/post/2011/02/07/2011-02-07-new-year.html">过年咯，赶集喽</a>
+                        <a class="title" href="/%e7%bb%8f%e5%85%b8%e4%b8%80%e5%88%bb/2011/02/07/new-year/index.html">过年咯，赶集喽</a>
                         
                         
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1297083643">
                                 <span class="from"></span>
                                 
@@ -44,12 +78,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2011/03/09/2011-03-09-bay-yalong.html">三亚-亚龙湾</a>
+                        <a class="title" href="/%e7%bb%8f%e5%85%b8%e4%b8%80%e5%88%bb/2011/03/09/bay-yalong/index.html">三亚-亚龙湾</a>
                         
                         
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1299652749">
                                 <span class="from"></span>
                                 
@@ -61,12 +95,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2011/03/30/2011-03-30-oh-plane.html">看！灰机！</a>
+                        <a class="title" href="/%e5%9b%a7%e5%8d%b0%e8%b1%a1/2011/03/30/oh-plane/index.html">看！灰机！</a>
                         
                         
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1301494624">
                                 <span class="from"></span>
                                 
@@ -78,12 +112,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2011/07/30/2011-07-30-lolipop-from-shanghai.html">上海的棒棒糖</a>
+                        <a class="title" href="/%e7%bb%8f%e5%85%b8%e4%b8%80%e5%88%bb/2011/07/30/lolipop-from-shanghai/index.html">上海的棒棒糖</a>
                         
                         
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1312039600">
                                 <span class="from"></span>
                                 
@@ -95,12 +129,12 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2012/03/20/2012-03-20-happy-birthday.html">斯屹生日快乐</a>
+                        <a class="title" href="/%e7%bb%8f%e5%85%b8%e4%b8%80%e5%88%bb/2012/03/20/happy-birthday/index.html">斯屹生日快乐</a>
                         
-                        <section class="preview">今天是斯屹的四岁生日，祝你生日快乐，也祝你妈妈青春永驻...</section>
+                        <section class="preview content">今天是斯屹的四岁生日，祝你生日快乐，也祝你妈妈青春永驻...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1332227233">
                                 <span class="from"></span>
                                 
@@ -130,6 +164,5 @@
 </footer>
 
     </body>
-    <script src="/js/jquery-1.11.2.min.js"></script>
-    <script src="/js/index.js"></script>
+    <script src="/bundle/index.js"></script>
 </html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+        <meta name="keywords" content="Raspberry Pi,EE,birthday,encorage,教育,鼓励,siyi,荣誉室,">
+        <meta name="description" content="Pi 动力">
+        <link rel="stylesheet" href="/bundle/index.css">
+        <title>Pi 动力</title>
+    </head>
+    <body>
+        <article class="container">
+            <a class="index" href="/">斯屹</a>
+<ul class="menu">
+    <li class="menu-item"><a href="/archive.html">归档</a></li>
+    <li class="menu-item"><a href="/tag.html">标签</a></li>
+    
+</ul>
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+</script>
+
+<script type="text/javascript">
+    var conn, reloadTimer, connectTimer;
+    var connect = function() {
+        conn = new WebSocket('ws://' + location.host + '/live');
+        conn.onmessage = function(event) {
+            if (event.data === 'change') {
+                if (reloadTimer) clearTimeout(reloadTimer);
+                reloadTimer = setTimeout(function() {
+                    window.location.reload();
+                }, 200);
+            }
+        };
+        conn.onclose = function() {
+            if (connectTimer) clearTimeout(connectTimer);
+            connectTimer = setTimeout(function() {
+                connect();
+            }, 1000);
+        };
+    };
+    connect();
+</script>
+
+
+            <article class="main article">
+                <h1 class="title">Pi 动力</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
+                    <a class="name" href="/about.me.html">gnawux</a>
+                    <span class="date" data-time="1427514585">
+                        <span class="from"></span>
+                        
+                    </span>
+                    <span class="tags"><a class="tag" href="/tag/Raspberry%20Pi/index.html">Raspberry Pi</a><a class="tag" href="/tag/EE/index.html">EE</a><a class="tag" href="/tag/birthday/index.html">birthday</a><a class="tag" href="/tag/encorage/index.html">encorage</a><a class="tag" href="/tag/%e6%95%99%e8%82%b2/index.html">教育</a><a class="tag" href="/tag/%e9%bc%93%e5%8a%b1/index.html">鼓励</a><a class="tag" href="/tag/siyi/index.html">siyi</a><a class="tag" href="/tag/%e8%8d%a3%e8%aa%89%e5%ae%a4/index.html">荣誉室</a></span>
+                </section>
+                <article class="content"><iframe src="https://www.flickr.com/photos/gnawux/16945837051/player/" width="500" height="375" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+<p>斯屹7岁生日之后的一个星期，爸爸答应他，每天晚上如果可以在爸爸到家前就完成学习任务，就可以教他用树莓派在<a href="/post/2015/03/20/2015-03-20-happy-birthday.html">小液晶上做跑马灯字幕</a>，结果，斯屹发挥出了出乎预料的潜力，每天都能节约出超过一小时的时间。看得出来，斯屹这么大的孩子，一般的夸奖实在算不上是鼓励，批评也没什么意义，他需要的是有内容的激励。</p>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/gnawux.png);"></div>
+                    <a class="name" href="/about.me.html">gnawux</a>
+                    <div class="intro">father!#$!@#$@#$wangsiyi!@#$%^&amp;*()_net</div>
+                </section>
+                <section class="recommend">
+                    
+                    <section class="nav prev more">
+                        <div class="head">上篇文章</div>
+                        <a class="link" href="/%e6%88%91%e7%88%b1%e9%97%ae%e8%80%81%e7%88%b8/2015/07/05/qa-week-0629/index.html">我爱问老爸：一周问题实录(1)</a>
+                    </section>
+                    
+                    
+                    <section class="nav next more">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/%e6%97%b6%e9%97%b4%e6%9c%ba%e5%99%a8/2015/03/22/rpi/index.html">换用 Raspberry Pi 实现同样的效果</a>
+                    </section>
+                    
+                </section>
+                
+
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        斯屹 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.inkpaper.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+</html>

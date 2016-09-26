@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+        <meta name="keywords" content="video,本站,收容区,">
+        <meta name="description" content="补视频中……">
+        <link rel="stylesheet" href="/bundle/index.css">
+        <title>补视频中……</title>
+    </head>
+    <body>
+        <article class="container">
+            <a class="index" href="/">斯屹</a>
+<ul class="menu">
+    <li class="menu-item"><a href="/archive.html">归档</a></li>
+    <li class="menu-item"><a href="/tag.html">标签</a></li>
+    
+</ul>
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+</script>
+
+<script type="text/javascript">
+    var conn, reloadTimer, connectTimer;
+    var connect = function() {
+        conn = new WebSocket('ws://' + location.host + '/live');
+        conn.onmessage = function(event) {
+            if (event.data === 'change') {
+                if (reloadTimer) clearTimeout(reloadTimer);
+                reloadTimer = setTimeout(function() {
+                    window.location.reload();
+                }, 200);
+            }
+        };
+        conn.onclose = function() {
+            if (connectTimer) clearTimeout(connectTimer);
+            connectTimer = setTimeout(function() {
+                connect();
+            }, 1000);
+        };
+    };
+    connect();
+</script>
+
+
+            <article class="main article">
+                <h1 class="title">补视频中……</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
+                    <a class="name" href="/about.gnawux.html">daddy</a>
+                    <span class="date" data-time="1304739806">
+                        <span class="from"></span>
+                        
+                    </span>
+                    <span class="tags"><a class="tag" href="/tag/video/index.html">video</a><a class="tag" href="/tag/%e6%9c%ac%e7%ab%99/index.html">本站</a><a class="tag" href="/tag/%e6%94%b6%e5%ae%b9%e5%8c%ba/index.html">收容区</a></span>
+                </section>
+                <article class="content"><p>正在补充上传两个整理出来的过年时候的手机视频：</p>
+<ul>
+<li>过年什刹海滑冰车：<a href="http://wangsiyi.net/siyi/p/54">http://wangsiyi.net/siyi/p/54</a></li>
+<li>过年逛华润万家：<a href="http://wangsiyi.net/siyi/p/34">http://wangsiyi.net/siyi/p/34</a></li>
+</ul>
+<p>呵呵，新补的日志的发布日期都放在视频拍摄的时间了，嗯，所以有旧日志加新内容的感觉，呵呵</p>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/gnawux.png);"></div>
+                    <a class="name" href="/about.gnawux.html">daddy</a>
+                    <div class="intro">father!#$!@#$@#$wangsiyi!@#$%^&amp;*()_net</div>
+                </section>
+                <section class="recommend">
+                    
+                    <section class="nav prev more">
+                        <div class="head">上篇文章</div>
+                        <a class="link" href="/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/2011/06/13/when-will-daddy-back/index.html">爸爸什么时候回来啊</a>
+                    </section>
+                    
+                    
+                    <section class="nav next more">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/%e6%97%b6%e9%97%b4%e6%9c%ba%e5%99%a8/2011/05/06/bottles/index.html">折腾瓶子咯</a>
+                    </section>
+                    
+                </section>
+                
+
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        斯屹 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.inkpaper.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+</html>

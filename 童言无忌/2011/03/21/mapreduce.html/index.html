@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
+        <meta name="keywords" content="MapReduce,吃,瓜子,童言无忌,">
+        <meta name="description" content="MapReduce">
+        <link rel="stylesheet" href="/bundle/index.css">
+        <title>MapReduce</title>
+    </head>
+    <body>
+        <article class="container">
+            <a class="index" href="/">斯屹</a>
+<ul class="menu">
+    <li class="menu-item"><a href="/archive.html">归档</a></li>
+    <li class="menu-item"><a href="/tag.html">标签</a></li>
+    
+</ul>
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+</script>
+
+<script type="text/javascript">
+    var conn, reloadTimer, connectTimer;
+    var connect = function() {
+        conn = new WebSocket('ws://' + location.host + '/live');
+        conn.onmessage = function(event) {
+            if (event.data === 'change') {
+                if (reloadTimer) clearTimeout(reloadTimer);
+                reloadTimer = setTimeout(function() {
+                    window.location.reload();
+                }, 200);
+            }
+        };
+        conn.onclose = function() {
+            if (connectTimer) clearTimeout(connectTimer);
+            connectTimer = setTimeout(function() {
+                connect();
+            }, 1000);
+        };
+    };
+    connect();
+</script>
+
+
+            <article class="main article">
+                <h1 class="title">MapReduce</h1>
+                <section class="info">
+                    <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
+                    <a class="name" href="/about.gnawux.html">daddy</a>
+                    <span class="date" data-time="1300719796">
+                        <span class="from"></span>
+                        
+                    </span>
+                    <span class="tags"><a class="tag" href="/tag/MapReduce/index.html">MapReduce</a><a class="tag" href="/tag/%e5%90%83/index.html">吃</a><a class="tag" href="/tag/%e7%93%9c%e5%ad%90/index.html">瓜子</a><a class="tag" href="/tag/%e7%ab%a5%e8%a8%80%e6%97%a0%e5%bf%8c/index.html">童言无忌</a></span>
+                </section>
+                <article class="content"><p>MapReduce是看似高深的并行计算算法，但是，今天，斯屹将向你展示其最本质的思想，是的，三岁小孩都懂MapReduce：</p>
+<blockquote><p>晚上，斯屹悄悄地把瓜子分成两堆，口中念念有词，然后回头问妈妈，你剥哪堆？嗯，一堆是爸爸的，一堆是妈妈的，两个人剥好了给王斯屹吃。</p></blockquote>
+<p>爸爸说，这就是MapReduce！</p>
+</article>
+                <section class="author">
+                    <div class="avatar" style="background-image: url(/images/gnawux.png);"></div>
+                    <a class="name" href="/about.gnawux.html">daddy</a>
+                    <div class="intro">father!#$!@#$@#$wangsiyi!@#$%^&amp;*()_net</div>
+                </section>
+                <section class="recommend">
+                    
+                    <section class="nav prev more">
+                        <div class="head">上篇文章</div>
+                        <a class="link" href="/%e6%94%b6%e5%ae%b9%e5%8c%ba/2011/03/29/hello-world.html/index.html">建站宣言</a>
+                    </section>
+                    
+                    
+                    <section class="nav next more">
+                        <div class="head">下篇文章</div>
+                        <a class="link" href="/%e7%bb%8f%e5%85%b8%e4%b8%80%e5%88%bb/2011/03/09/bay-yalong/index.html">三亚-亚龙湾</a>
+                    </section>
+                    
+                </section>
+                
+
+            </article>
+        </article>
+        <footer class="footer">
+    <span class="copyright">
+        斯屹 ©
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </span>
+    <span class="publish">Powered by <a href="http://www.inkpaper.io/" target="_blank">Ink</a></span>
+</footer>
+
+        <script src="/bundle/index.js"></script>
+    </body>
+</html>

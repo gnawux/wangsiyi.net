@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
         <meta name="keywords" content="斯屹, 骑红色自行车的少年">
         <meta name="description" content="骑红色自行车的少年">
-        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/bundle/index.css">
         <title>斯屹</title>
     </head>
     <body>
@@ -15,7 +15,41 @@
 <ul class="menu">
     <li class="menu-item"><a href="/archive.html">归档</a></li>
     <li class="menu-item"><a href="/tag.html">标签</a></li>
+    
 </ul>
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+</script>
+
+<script type="text/javascript">
+    var conn, reloadTimer, connectTimer;
+    var connect = function() {
+        conn = new WebSocket('ws://' + location.host + '/live');
+        conn.onmessage = function(event) {
+            if (event.data === 'change') {
+                if (reloadTimer) clearTimeout(reloadTimer);
+                reloadTimer = setTimeout(function() {
+                    window.location.reload();
+                }, 200);
+            }
+        };
+        conn.onclose = function() {
+            if (connectTimer) clearTimeout(connectTimer);
+            connectTimer = setTimeout(function() {
+                connect();
+            }, 1000);
+        };
+    };
+    connect();
+</script>
+
 
             <article class="main page">
                 <header class="header site">
@@ -27,12 +61,12 @@
                 <ul class="article-list">
                     
                     <li class="article">
-                        <a class="title" href="/post/2010/06/07/2010-06-07-i-wanna-fly.html">一次不太成功的试飞</a>
+                        <a class="title" href="/%e6%97%b6%e9%97%b4%e6%9c%ba%e5%99%a8/2010/06/07/i-wanna-fly/index.html">一次不太成功的试飞</a>
                         
                         
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
-                            <a class="name" href="/about.gnawux.html">gnawux</a>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
                             <span class="date" data-time="1275887727">
                                 <span class="from"></span>
                                 
@@ -62,6 +96,5 @@
 </footer>
 
     </body>
-    <script src="/js/jquery-1.11.2.min.js"></script>
-    <script src="/js/index.js"></script>
+    <script src="/bundle/index.js"></script>
 </html>

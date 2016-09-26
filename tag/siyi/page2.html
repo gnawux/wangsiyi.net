@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
         <meta name="keywords" content="斯屹, 骑红色自行车的少年">
         <meta name="description" content="骑红色自行车的少年">
-        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/bundle/index.css">
         <title>斯屹</title>
     </head>
     <body>
@@ -15,21 +15,55 @@
 <ul class="menu">
     <li class="menu-item"><a href="/archive.html">归档</a></li>
     <li class="menu-item"><a href="/tag.html">标签</a></li>
+    
 </ul>
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+</script>
+
+<script type="text/javascript">
+    var conn, reloadTimer, connectTimer;
+    var connect = function() {
+        conn = new WebSocket('ws://' + location.host + '/live');
+        conn.onmessage = function(event) {
+            if (event.data === 'change') {
+                if (reloadTimer) clearTimeout(reloadTimer);
+                reloadTimer = setTimeout(function() {
+                    window.location.reload();
+                }, 200);
+            }
+        };
+        conn.onclose = function() {
+            if (connectTimer) clearTimeout(connectTimer);
+            connectTimer = setTimeout(function() {
+                connect();
+            }, 1000);
+        };
+    };
+    connect();
+</script>
+
 
             <article class="main page">
                 <header class="header site">
                     
                         <h1 class="tag">siyi</h1>
-                        <h2 class="tag-sub">17 篇文章</h2>
+                        <h2 class="tag-sub">18 篇文章</h2>
                     
                 </header>
                 <ul class="article-list">
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/07/11/2015-07-11-qa-week-0706.html">我爱问老爸：一周问题实录(2)</a>
+                        <a class="title" href="/misc/2015/07/11/qa-week-0706/index.html">我爱问老爸：一周问题实录(2)</a>
                         
-                        <section class="preview">后面的问题可难住我了，屹问，为什么我们的汽车烧汽油而不烧柴油，这个，要么是因为两种油的燃料不同，要么因为两种发动机有不同，才有了这个选择，好吧，回头查查。...</section>
+                        <section class="preview content">后面的问题可难住我了，屹问，为什么我们的汽车烧汽油而不烧柴油，这个，要么是因为两种油的燃料不同，要么因为两种发动机有不同，才有了这个选择，好吧，回头查查。...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -44,9 +78,9 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/07/18/2015-07-18-qa-week-07013.html">我爱问老爸：一周问题实录(3)</a>
+                        <a class="title" href="/misc/2015/07/18/qa-week-07013/index.html">我爱问老爸：一周问题实录(3)</a>
                         
-                        <section class="preview">冥王星周，新视野号是真正伟大的星际探险，加油孩子们，更多未知的宇宙等着你们...</section>
+                        <section class="preview content">冥王星周，新视野号是真正伟大的星际探险，加油孩子们，更多未知的宇宙等着你们...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -61,9 +95,9 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/07/25/2015-07-25-qa-week-0720.html">我爱问老爸：一周问题实录(4)</a>
-                        <div class="topic" style="background-image:url(/images/IMG_1668.png);"></div>
-                        <section class="preview">为什么说不同颜色加在一起就是白色，可我自己混合所有颜料却只能得到黑色啊。...</section>
+                        <a class="title" href="/misc/2015/07/25/qa-week-0720/index.html">我爱问老爸：一周问题实录(4)</a>
+                        <div class="cover" style="background-image:url(/images/IMG_1668.png);"></div>
+                        <section class="preview content">为什么说不同颜色加在一起就是白色，可我自己混合所有颜料却只能得到黑色啊。...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -78,9 +112,9 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/09/27/2015-09-27-show-and-tell.html">Show and Tell</a>
-                        <div class="topic" style="background-image:url(/images/show-and-tell_white_board.jpg);"></div>
-                        <section class="preview">Today, I will show you a great plane!...</section>
+                        <a class="title" href="/misc/2015/09/27/show-and-tell/index.html">Show and Tell</a>
+                        <div class="cover" style="background-image:url(/images/show-and-tell_white_board.jpg);"></div>
+                        <section class="preview content">Today, I will show you a great plane!...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -95,9 +129,9 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/10/17/2015-10-17-week-1012.html">我爱问老爸：一周问题实录(5)</a>
+                        <a class="title" href="/misc/2015/10/17/week-1012/index.html">我爱问老爸：一周问题实录(5)</a>
                         
-                        <section class="preview">飞行模式的10月，爸爸不希望漏过宝贵的一两天。...</section>
+                        <section class="preview content">飞行模式的10月，爸爸不希望漏过宝贵的一两天。...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -112,9 +146,9 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/11/14/2015-11-14-week-1107.html">我爱问老爸：一周问题实录(6)</a>
+                        <a class="title" href="/misc/2015/11/14/week-1107/index.html">我爱问老爸：一周问题实录(6)</a>
                         
-                        <section class="preview">雾霾中的十一月，偶尔也有一些有意思的对话在。...</section>
+                        <section class="preview content">雾霾中的十一月，偶尔也有一些有意思的对话在。...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -129,9 +163,9 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/12/06/2015-12-06-week-7.html">我爱问老爸：一周问题实录(7)</a>
-                        <div class="topic" style="background-image:url(/images/week7.png);"></div>
-                        <section class="preview">话说这么久了，第一次被问到本专业（通信）的问题，作为本专业的Ph.D，面对一个二年级小学生，三句两句还真没说清楚...</section>
+                        <a class="title" href="/misc/2015/12/06/week-7/index.html">我爱问老爸：一周问题实录(7)</a>
+                        <div class="cover" style="background-image:url(/images/week7.png);"></div>
+                        <section class="preview content">话说这么久了，第一次被问到本专业（通信）的问题，作为本专业的Ph.D，面对一个二年级小学生，三句两句还真没说清楚...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -141,6 +175,23 @@
                             </span>
                             <span class="tags">
                             <a class="tag" href="/tag/%e8%af%ad%e5%bd%95/index.html">语录</a><a class="tag" href="/tag/%e7%a7%91%e6%99%ae/index.html">科普</a><a class="tag" href="/tag/%e7%88%b6%e5%ad%90/index.html">父子</a><a class="tag" href="/tag/%e6%95%99%e8%82%b2/index.html">教育</a><a class="tag" href="/tag/%e7%a7%af%e7%b4%af/index.html">积累</a><a class="tag" href="/tag/siyi/index.html">siyi</a><a class="tag" href="/tag/%e6%88%91%e7%88%b1%e9%97%ae%e8%80%81%e7%88%b8/index.html">我爱问老爸</a>
+                            </span>
+                        </section>
+                    </li>
+                    
+                    <li class="article">
+                        <a class="title" href="/misc/2016/09/26/math-in-life/index.html">对小学教育的一点思考（1）</a>
+                        
+                        <section class="preview content">十分惭愧，作为爸爸，这一段时间，花在孩子身上的时间真的太有限了，昨天到今早，带了一会儿屹的学习，有点感受，不吐不快。...</section>
+                        <section class="info">
+                            <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
+                            <a class="name" href="/about.gnawux.html">daddy</a>
+                            <span class="date" data-time="1474849845">
+                                <span class="from"></span>
+                                
+                            </span>
+                            <span class="tags">
+                            <a class="tag" href="/tag/%e7%88%b6%e5%ad%90/index.html">父子</a><a class="tag" href="/tag/%e6%95%99%e8%82%b2/index.html">教育</a><a class="tag" href="/tag/%e7%a7%af%e7%b4%af/index.html">积累</a><a class="tag" href="/tag/siyi/index.html">siyi</a><a class="tag" href="/tag/%e7%94%9f%e6%b4%bb/index.html">生活</a><a class="tag" href="/tag/%e6%95%b0%e5%ad%a6/index.html">数学</a>
                             </span>
                         </section>
                     </li>
@@ -164,6 +215,5 @@
 </footer>
 
     </body>
-    <script src="/js/jquery-1.11.2.min.js"></script>
-    <script src="/js/index.js"></script>
+    <script src="/bundle/index.js"></script>
 </html>

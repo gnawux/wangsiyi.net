@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=1">
         <meta name="keywords" content="斯屹, 骑红色自行车的少年">
         <meta name="description" content="骑红色自行车的少年">
-        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/bundle/index.css">
         <title>斯屹</title>
     </head>
     <body>
@@ -15,7 +15,41 @@
 <ul class="menu">
     <li class="menu-item"><a href="/archive.html">归档</a></li>
     <li class="menu-item"><a href="/tag.html">标签</a></li>
+    
 </ul>
+<script type="text/javascript">
+    var timeSinceLang = {
+        year: '年前',
+        month: '个月前',
+        day: '天前',
+        hour: '小时前',
+        minute: '分钟前',
+        second: '秒前'
+    };
+</script>
+
+<script type="text/javascript">
+    var conn, reloadTimer, connectTimer;
+    var connect = function() {
+        conn = new WebSocket('ws://' + location.host + '/live');
+        conn.onmessage = function(event) {
+            if (event.data === 'change') {
+                if (reloadTimer) clearTimeout(reloadTimer);
+                reloadTimer = setTimeout(function() {
+                    window.location.reload();
+                }, 200);
+            }
+        };
+        conn.onclose = function() {
+            if (connectTimer) clearTimeout(connectTimer);
+            connectTimer = setTimeout(function() {
+                connect();
+            }, 1000);
+        };
+    };
+    connect();
+</script>
+
 
             <article class="main page">
                 <header class="header site">
@@ -27,9 +61,9 @@
                 <ul class="article-list">
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/10/17/2015-10-17-week-1012.html">我爱问老爸：一周问题实录(5)</a>
+                        <a class="title" href="/misc/2015/10/17/week-1012/index.html">我爱问老爸：一周问题实录(5)</a>
                         
-                        <section class="preview">飞行模式的10月，爸爸不希望漏过宝贵的一两天。...</section>
+                        <section class="preview content">飞行模式的10月，爸爸不希望漏过宝贵的一两天。...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -44,9 +78,9 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/11/14/2015-11-14-week-1107.html">我爱问老爸：一周问题实录(6)</a>
+                        <a class="title" href="/misc/2015/11/14/week-1107/index.html">我爱问老爸：一周问题实录(6)</a>
                         
-                        <section class="preview">雾霾中的十一月，偶尔也有一些有意思的对话在。...</section>
+                        <section class="preview content">雾霾中的十一月，偶尔也有一些有意思的对话在。...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -61,9 +95,9 @@
                     </li>
                     
                     <li class="article">
-                        <a class="title" href="/post/2015/12/06/2015-12-06-week-7.html">我爱问老爸：一周问题实录(7)</a>
-                        <div class="topic" style="background-image:url(/images/week7.png);"></div>
-                        <section class="preview">话说这么久了，第一次被问到本专业（通信）的问题，作为本专业的Ph.D，面对一个二年级小学生，三句两句还真没说清楚...</section>
+                        <a class="title" href="/misc/2015/12/06/week-7/index.html">我爱问老爸：一周问题实录(7)</a>
+                        <div class="cover" style="background-image:url(/images/week7.png);"></div>
+                        <section class="preview content">话说这么久了，第一次被问到本专业（通信）的问题，作为本专业的Ph.D，面对一个二年级小学生，三句两句还真没说清楚...</section>
                         <section class="info">
                             <span class="avatar" style="background-image: url(/images/gnawux.png);"></span>
                             <a class="name" href="/about.me.html">gnawux</a>
@@ -96,6 +130,5 @@
 </footer>
 
     </body>
-    <script src="/js/jquery-1.11.2.min.js"></script>
-    <script src="/js/index.js"></script>
+    <script src="/bundle/index.js"></script>
 </html>
